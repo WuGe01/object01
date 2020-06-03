@@ -50,7 +50,7 @@ class DB{
         }else{
             $sql=$sql . " where `id`='$arg'";
         }
-        return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        return $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
     }
     public function del($arg){
         $sql="delete  from $this->table ";
@@ -69,14 +69,16 @@ class DB{
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
     public function save($arg){
-        if(!empty($arg['id'])){   
-            $tmp=[];        
+        if(!empty($arg['id'])){
             foreach($arg as $key => $value){
-                $tmp[]=sprintf("`%s`='%s'",$key,$value);
+                if($key!='id'){
+                    $tmp[]=sprintf("`%s`='%s'",$key,$value);
+                }
             }
-            $sql="update ".$this->table." set ".join(",",$tmp). " where `id` = '".$arg['id']."' ";
+            $sql="update $this->table set ".join(",",$tmp)." where `id`='".$arg['id']."'";
         }else{
-            $sql="insert into $this->table (`" . join("`,`",array_keys($arg)) . "`) values ('" . join("','",$arg) . "')";
+
+            $sql="insert into $this->table (`".join("`,`",array_keys($arg))."`) values('".join("','",$arg)."')";
         }
         return $this->pdo->exec($sql);
     }
