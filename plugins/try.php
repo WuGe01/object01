@@ -17,8 +17,6 @@ class DB{
                 $tmp[]=sprintf("`%s`='%s'",$key,$value);
             }
             $sql=$sql." where " . join(" && ",$tmp);
-        }else{
-            $sql=$sql . $arg[0];
         }
         if(!empty($arg[1])){
             $sql=$sql . $arg[1];    
