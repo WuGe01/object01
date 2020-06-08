@@ -1,6 +1,6 @@
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
 <p class="t cent botli">最新消息資料</p>
-<form method="post" target="back" action="api/edit_news.php">
+<form method="post" target="back" action="api/edit.php">
     <table width="100%">
         <tbody>
             <tr class="yel">
@@ -9,7 +9,7 @@
                 <td width="7%">刪除</td>
             </tr>
             <?php
-                $b_news=new DB('b_news');
+                $b_news=new DB('news');
                 $rows=$b_news->all();
                 foreach($rows as $row){
                     $isChk=($row['see'] == 1 )?'checked':'';  

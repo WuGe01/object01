@@ -1,5 +1,6 @@
 <?php
 include_once "../plugins/try.php";
+
 $type=$_POST['type'];
 $title=new DB($type);
 $date=[];
@@ -25,5 +26,6 @@ if(!empty($_POST['text'])){
     $date['text']=$_POST['text'];
 }
 ($title=='main')?$date['see']=0:$date['see']=1;
+$title->save($date);
 to("../backend.php?do=$type");
 ?>

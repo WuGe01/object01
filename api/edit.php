@@ -2,8 +2,7 @@
 include_once "../plugins/try.php";
 $type=$_POST['type'];
 $title=new DB($type);
-
-if(!empty($_POST['id']) && $type == 'bottom' && $type == 'total'){
+if(!empty($_POST['id']) && $type != 'bottom' && $type != 'total'){
     foreach($_POST['id'] as $key => $id){
         if(!empty($_POST['del']) && in_array($id,$_POST['del'])){
             $title->del($id);
@@ -22,7 +21,11 @@ if(!empty($_POST['id']) && $type == 'bottom' && $type == 'total'){
     }
 }else{
     $row=$title->find(1);
-    $row['bottom']=$_POST['bottom'];
+    if($type =='bottom'){
+        $row['bottom']=$_POST['bottom'];
+    }else{
+        $row['total']=$_POST['total'];
+    }
     $title->save($row);
 }
 to("../backend.php?do=$type");

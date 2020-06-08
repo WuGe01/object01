@@ -1,6 +1,6 @@
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
 <p class="t cent botli">校園映象資料</p>
-<form method="post" target="back" action="api/edit_image.php">
+<form method="post" target="back" action="api/edit.php">
     <table width="100%">
         <tbody>
             <tr class="yel">
@@ -10,7 +10,7 @@
                 <td></td>
             </tr>
             <?php
-                $b_image=new DB('b_image');
+                $b_image=new DB('image');
                 $rows=$b_image->all();
                 foreach($rows as $row){
                     $isChk=($row['see'] == 1 )?'checked':'';  
