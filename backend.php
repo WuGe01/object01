@@ -23,8 +23,12 @@
 	</div>
 	<!-- <iframe style="display:none;" name="back" id="back"></iframe> -->
 	<div id="main">
-		<a title="" href="?">
-			<div class="ti" style="background:url(&#39;use/&#39;); background-size:cover;"></div>
+	<?php
+	$title=new DB('b_main');
+	$ti=$title->find(['see'=>1]);
+	?>
+		<a title="<?=$ti['text']?>" href="index.php">
+			<div class="ti" style="background:url('img/<?=$ti['img'];?>'); background-size:cover;"></div>
 			<!--標題-->
 		</a>
 		<div id="ms">
@@ -44,7 +48,12 @@
 				</div>
 				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
 					<span class="t">進站總人數 :
-						1 </span>
+					<?php 
+					$total=new DB('total');
+					$tt=$total->find(1);
+					echo $tt['total'];
+					?>
+					</span>
 				</div>
 			</div>
 			<div class="di"
@@ -91,7 +100,13 @@
 		<div style="clear:both;"></div>
 		<div
 			style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
-			<span class="t" style="line-height:123px;"></span>
+			<span class="t" style="line-height:123px;">
+			<?php 
+			$bottom=new DB('bottom');
+			$tbo=$bottom->find(1);
+			echo $tbo['bottom'];
+			?>
+			</span>
 		</div>
 	</div>
 
