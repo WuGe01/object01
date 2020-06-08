@@ -31,7 +31,7 @@
     </table>
     <table style="margin-top:40px; width:70%;">
         <tbody>
-            <tr>
+            <tr><input type="hidden" name="type" value="main">
                 <td width="200px"><input type="button"
                         onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;back/view.php?do=title&#39;)"
                         value="新增網站標題圖片"></td>

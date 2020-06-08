@@ -19,7 +19,7 @@
                 <td width="68%" class="cent"><img src='img2/<?=$row['img'];?>'style="width:150px;height:150px;margin:auto"></td>
                 <td width="7%"><input type="checkbox" name="see[]" value="<?=$row['id'];?>" <?=$isChk;?>></td>
                 <td width="7%"><input type="checkbox" name="del[]" value="<?=$row['id'];?>"></td>
-                <td><input type="button" value="更新圖片" onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;back/view_mvim.php?id=<?=$row['id'];?>&#39;)"></td>
+                <td><input type="button" value="更新動畫" onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;back/view_mvim.php?id=<?=$row['id'];?>&#39;)"></td>
                 <input type="hidden" name="id[]" value="<?=$row['id'];?>">
             </tr>
             <?php
@@ -29,7 +29,7 @@
     </table>
     <table style="margin-top:40px; width:70%;">
         <tbody>
-            <tr>
+            <tr><input type="hidden" name="type" value="mvim">
                 <td width="200px"><input type="button"
                         onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;back/mvim.php?do=title&#39;)"
                         value="新增動畫圖片"></td>

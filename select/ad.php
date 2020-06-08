@@ -29,7 +29,7 @@
     </table>
     <table style="margin-top:40px; width:70%;">
         <tbody>
-            <tr>
+            <tr><input type="hidden" name="type" value="ad">
                 <td width="200px"><input type="button"
                         onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;back/view_ad.php&#39;)"
                         value="新增動態文字廣告"></td>

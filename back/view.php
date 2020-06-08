@@ -8,7 +8,8 @@
     </tr>
     <tr>
         <td style="text-align:right">標題區替代文字:</td>
-        <td><input type="text" name="text"></td>
+        <td><input type="text" name="text">
+        <input type="hidden" name="type" value=<?=$_POST['type'];?>></td>
     </tr>
 
 </table>
