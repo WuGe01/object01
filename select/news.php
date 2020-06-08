@@ -9,8 +9,8 @@
                 <td width="7%">刪除</td>
             </tr>
             <?php
-                $b_news=new DB('news');
-                $rows=$b_news->all();
+                $db=new DB($do);
+                $rows=$db->all();
                 foreach($rows as $row){
                     $isChk=($row['see'] == 1 )?'checked':'';  
 
@@ -29,9 +29,9 @@
     </table>
     <table style="margin-top:40px; width:70%;">
         <tbody>
-            <tr><input type="hidden" name="type" value="news">
+            <tr><input type="hidden" name="type" value="<?=$do;?>">
                 <td width="200px"><input type="button"
-                        onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;back/view_news.php&#39;)"
+                        onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;back/view_news.php?title=<?=$do;?>&#39;)"
                         value="新增最新消息資料"></td>
                 <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置">
                 </td>

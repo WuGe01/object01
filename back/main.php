@@ -8,7 +8,7 @@
         <td><input type="file" name="img"></td>
     </tr>
     <tr>
-        <input type="hidden" name="type" value="main">
+        <input type="hidden" name="type" value="<?=$_GET['title'];?>">
         <td style="text-align:right">標題區替代文字:</td>
         <td><input type="text" name="text"></td>
     </tr>

@@ -9,7 +9,7 @@
 
 </table>
 <div class="cent">
-<input type="hidden" name="type" value="mvim">
+    <input type="hidden" name="type" value="<?=$_GET['title'];?>">
     <input type="hidden" name="id" value="<?=$_GET['id'];?>">
     <input type="submit" value="新增">
     <input type="reset" value="重設">  

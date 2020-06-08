@@ -5,8 +5,8 @@
         <tbody>
             <tr class="yel">
             <?php
-                $bottom=new DB('bottom');
-                $tbo=$bottom->find(1);
+                $db=new DB($do);
+                $tbo=$db->find(1);
                 ?>
                 <td width="50%">頁尾版權資料:</td>
                 <td width="50%"><input type="text" name="bottom" value='<?=$tbo['bottom'];?>'></td>
@@ -16,7 +16,7 @@
     </table>
     <table style="margin-top:40px; width:70%;">
         <tbody>
-            <tr><input type="hidden" name="type" value="bottom">
+            <tr><input type="hidden" name="type" value="<?=$do;?>">
                 <td width="200px"></td>
                 <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置">
                 </td>
