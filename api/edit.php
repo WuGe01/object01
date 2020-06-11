@@ -12,8 +12,8 @@ if(!empty($_POST['id']) && $type != 'bottom' && $type != 'total'){
                 $row['text']=$_POST['text'][$key];
             }
             if(!empty($_POST['name'])){
-                $date['name']=$_POST['name'][$key];
-                $date['herf']=$_POST['herf'][$key];
+                $row['name']=$_POST['name'][$key];
+                $row['herf']=$_POST['herf'][$key];
             }
             if($type =='main'){
                 $row['see']=($_POST['see']==$id)?1:0;
@@ -35,5 +35,6 @@ if(!empty($_POST['id']) && $type != 'bottom' && $type != 'total'){
     }
     $title->save($row);
 }
+
 to("../backend.php?do=$type");
 ?>

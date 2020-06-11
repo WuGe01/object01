@@ -14,17 +14,18 @@
             </tr>
             <?php
                 $db=new DB($do);
-                $rows=$db->all();
+                $rows=$db->all(["parent"=>"0"]);
                 foreach($rows as $row){
                     $isCheck=($row['see']==1)?"checked":"";
                      
             ?>
-            <tr>      
+            <tr> 
                 <td width="35%"><input style="width:86%" type="text" name="name[]" value="<?=$row['name'];?>"></td>
                 <td width="35%"><input style="width:86%" type="text" name="herf[]" value="<?=$row['herf'];?>"></td>
-                <td width="7%"><input type="text" value="編輯次選單" onclick="op('#cover','#cvr','back/menu2.php?parent=<?=$row['parent'];?>')"></td>
+                <td width="7%"><?=$db->nums(["parent"=>$row['id']]);?></td>
                 <td width="7%"><input type="checkbox" name="see[]" value="<?=$row['id'];?>" <?=$isCheck;?>></td>
                 <td width="7%"><input type="checkbox" name="del[]" value="<?=$row['id'];?>"></td>
+                <td width="7%"><input type="text" value="編輯次選單" onclick="op('#cover','#cvr','back/menu2.php?parent=<?=$row['id'];?>')"></td>
                 <input type="hidden" name="id[]" value="<?=$row['id'];?>">
             </tr>
             <?php

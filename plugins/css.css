@@ -75,6 +75,7 @@ body
 	line-height:30px;
 	padding:2px 10px 2px 10px;
 	margin:7px 1px 7px 1px;
+	text-align: center;
 }
 .mainmu:hover
 {
@@ -90,6 +91,9 @@ body
 	line-height:30px;
 	padding:2px 10px 2px 10px;
 	margin:7px 1px 7px 1px;
+	z-index:99;
+	text-align: center;
+	left: 120px;
 }
 .mainmu2:hover
 {
@@ -158,4 +162,13 @@ input:focus,button:focus
 	color:#0CF;
 	cursor:pointer;
 	text-decoration:none;
+}
+.mw{	
+	display: none;	
+}
+.mainmu a,
+.mainmu2 a{
+	text-decoration: none;
+	display: block;
+	height:30px;
 }

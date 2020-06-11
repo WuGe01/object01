@@ -28,6 +28,7 @@ if(!empty($_POST['text'])){
 if(!empty($_POST['name'])){
     $date['name']=$_POST['name'];
     $date['herf']=$_POST['herf'];
+    $date['parent']=0;
 }
 if(!empty($_POST['acc'])){
     $date['acc']=$_POST['acc'];

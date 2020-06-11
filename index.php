@@ -37,6 +37,32 @@
 				<div id="menuput" class="dbor">
 					<!--主選單放此-->
 					<span class="t botli">主選單區</span>
+					<?php
+						$mume=new DB("menu");
+						$mains=$mume->all(["parent"=>"0"]);
+						foreach($mains as $main){
+						?>	
+						<div class="mainmuX" >
+						<div class="mainmu" >	
+						<a href="<?=$main['herf'];?>"><?=$main['name'];?></a>
+						</div>
+						<div class="mw" >
+						<?php
+
+						$chhsub=$mume->nums(["parent"=>$main['id']]);
+						if($chhsub>0){
+							$subs=$mume->all(["parent"=>$main['id']]);
+							foreach($subs as $sub){
+								echo "<div class='mainmu2'><a href='".$sub['herf']."'>".$sub['name']."</a></div>";
+							}
+						}
+						?>
+						</div>
+						</div>
+					<?php
+
+						}
+					?>
 				</div>
 				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
 					<span class="t">進站總人數 :
@@ -83,12 +109,26 @@
 					onclick="lo(&#39;?do=admin&#39;)">管理登入</button>
 				<div style="width:89%; height:480px;" class="dbor">
 					<span class="t botli">校園映象區</span>
+					<div style="text-align:center;margin:10px"><img src="./icon/up.jpg" onclick="pp(1)"></div>
+					<?php
+						$image=new DB('image');
+						$imgs=$image->all(['see'=>'1']);
+						$tt=0;
+						foreach($imgs as $img){
+							echo "<div class='im' style='text-align:center;margin:10px' id='ssaa".$tt."'>";
+							echo "<img src='./img3/".$img['img']."' style='width:150px;height:103px'>";
+							echo "</div>";
+							$tt++;
+						}
+					?>
+					<div style="text-align:center;margin:10px"><img src="./icon/dn.jpg" onclick="pp(2)"></div>
 					<script>
-						var nowpage = 0, num = 0;
+
+						var nowpage = 0, num = <?=$image->nums(['see'=>'1']);?>;
 						function pp(x) {
 							var s, t;
 							if (x == 1 && nowpage - 1 >= 0) { nowpage--; }
-							if (x == 2 && (nowpage + 1) * 3 <= num * 1 + 3) { nowpage++; }
+							if (x == 2 && (nowpage + 1)  <= num - 3) { nowpage++; }
 							$(".im").hide()
 							for (s = 0; s <= 2; s++) {
 								t = s * 1 + nowpage * 1;

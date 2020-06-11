@@ -27,7 +27,7 @@ class DB{
         $sql="select count(*) from $this->table ";
         if(!empty($arg[0]) && is_array($arg[0])){
             $tmp=[];
-            foreach ($arg as $key => $value) {
+            foreach ($arg[0] as $key => $value) {
                 $tmp[]=sprintf("`%s`='%s'",$key,$value);
             }
             $sql=$sql." where " . join(" && ",$tmp);
