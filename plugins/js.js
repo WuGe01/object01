@@ -1,12 +1,12 @@
 // JavaScript Document
 $(document).ready(function(e) {
-    $(".mainmuX").mouseover(
+    $(".mainmu").mouseover(
 		function()
 		{
 			$(this).children(".mw").stop().show()
 		}
 	)
-	$(".mainmuX").mouseout(
+	$(".mainmu").mouseout(
 		function ()
 		{
 			$(this).children(".mw").hide()

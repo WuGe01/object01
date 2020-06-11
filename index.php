@@ -39,13 +39,13 @@
 					<span class="t botli">主選單區</span>
 					<?php
 						$mume=new DB("menu");
-						$mains=$mume->all(["parent"=>"0"]);
+						$mains=$mume->all(["parent"=>"0",'see'=>1]);
 						foreach($mains as $main){
 						?>	
-						<div class="mainmuX" >
+						
 						<div class="mainmu" >	
 						<a href="<?=$main['herf'];?>"><?=$main['name'];?></a>
-						</div>
+						
 						<div class="mw" >
 						<?php
 
