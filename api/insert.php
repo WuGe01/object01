@@ -25,7 +25,16 @@ if(!empty($_FILES['img']['tmp_name'])){
 if(!empty($_POST['text'])){
     $date['text']=$_POST['text'];
 }
-($title=='main')?$date['see']=0:$date['see']=1;
+if(!empty($_POST['name'])){
+    $date['name']=$_POST['name'];
+    $date['herf']=$_POST['herf'];
+}
+if(!empty($_POST['acc'])){
+    $date['acc']=$_POST['acc'];
+    $date['pw']=$_POST['pw'];
+}else{
+    ($title=='main')?$date['see']=0:$date['see']=1;
+}
 $title->save($date);
 to("../backend.php?do=$type");
 ?>

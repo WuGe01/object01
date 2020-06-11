@@ -11,8 +11,15 @@ if(!empty($_POST['id']) && $type != 'bottom' && $type != 'total'){
             if(!empty($_POST['text'])){
                 $row['text']=$_POST['text'][$key];
             }
-            if($type=='main'){
+            if(!empty($_POST['name'])){
+                $date['name']=$_POST['name'][$key];
+                $date['herf']=$_POST['herf'][$key];
+            }
+            if($type =='main'){
                 $row['see']=($_POST['see']==$id)?1:0;
+            }else if(!empty($_POST['acc'])){
+                $row['acc']=$_POST['acc'][$key];
+                $row['pw']=$_POST['pw'][$key];
             }else{
                 $row['see']=(in_array($id,$_POST['see']))?1:0;
             }

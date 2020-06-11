@@ -24,7 +24,7 @@
 	<div id="main">
 	<?php
 	include_once "./plugins/try.php";
-	$title=new DB('b_main');
+	$title=new DB('main');
 	$ti=$title->find(['see'=>1]);
 	?>
 		<a title="<?=$ti['text']?>" href="index.php">

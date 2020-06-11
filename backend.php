@@ -24,7 +24,7 @@
 	<!-- <iframe style="display:none;" name="back" id="back"></iframe> -->
 	<div id="main">
 	<?php
-	$title=new DB('b_main');
+	$title=new DB('main');
 	$ti=$title->find(['see'=>1]);
 	?>
 		<a title="<?=$ti['text']?>" href="index.php">
