@@ -87,4 +87,12 @@ class DB{
 function to($url){
     header("location:".$url);
 }
+
+if(empty($_SESSION['visited'])){
+    $total=new DB('total');
+    $rows=$total->find(1);
+    $rows['total']++;
+    $total->save($rows);
+    $_SESSION['visited']=1;
+}
 ?>
