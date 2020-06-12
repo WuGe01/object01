@@ -9,10 +9,15 @@
                 <td width="7%">刪除</td>
             </tr>
             <?php
-                $db=new DB($do);
-                $rows=$db->all();
+                $news=new DB($do);
+                $total=$news->nums('');
+                $num=3;
+                $pages=ceil($total/$num);
+                $now=(!empty($_GET['p']))?$_GET['p']:1;
+                $start=($now-1)*$num;
+                $rows=$news->all(""," limit $start,$num");
                 foreach($rows as $row){
-                    $isChk=($row['see'] == 1 )?'checked':'';  
+                $isChk=($row['see'] == 1 )?'checked':'';  
 
 
             ?>
@@ -27,6 +32,34 @@
             ?>
         </tbody>
     </table>
+              <!-- 1 -->
+              <div style="text-align:center;">
+                            <?php
+                            if(($now-1)>0){
+                            ?>
+                                <a class="bl" style="font-size:30px;" href="?do=<?=$do;?>&p=<?=($now-1);?>">&lt;&nbsp;</a>
+                            <?php
+                            }
+                            ?>
+
+                            <?php
+                            for($i=1;$i<=$pages;$i++){
+                                $fontsize=($i==$now)?'30px':'24px';
+                            ?>
+                            <a class="bl" style="font-size:<?=$fontsize;?>;" href="?do=<?=$do;?>&p=<?=$i;?>"><?=$i;?></a>
+                            <?php
+                            }
+                            ?>
+                                                <?php
+                            if(($now+1)<=$pages){
+                            ?>
+                            <a class="bl" style="font-size:30px;" href="?do=<?=$do;?>&p=<?=($now+1);?>">&nbsp;&gt;</a>
+                            <?php
+                            }
+                            ?>
+                            </div>
+
+                <!-- 1 -->
     <table style="margin-top:40px; width:70%;">
         <tbody>
             <tr><input type="hidden" name="type" value="<?=$do;?>">
